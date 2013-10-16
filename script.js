@@ -39,8 +39,15 @@ function draw_graph(data) {
   .attr( 'height', h )
   .append('g');
 
+  function zoom() {
+    chart.attr("transform", 
+             "translate(" + d3.event.translate + 
+             ")scale(" + d3.event.scale + ")");
+  }
+
   d3.select('svg g')
-  .attr('transform', 'translate(50, 50)');
+  .attr('transform', 'translate(30, 0)')
+  .call(d3.behavior.zoom().scaleExtent([1, 3]).on("zoom", zoom));
 
   x = d3.time.scale()
   .domain( [data[0].date, d3.time.day.offset(data[data.length - 1].date, 1)] )
