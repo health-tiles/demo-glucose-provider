@@ -6,4 +6,3 @@
 
 Quick and dirty visualization of fake glucose readings based on:
 http://bl.ocks.org/bewest/4241973
-
